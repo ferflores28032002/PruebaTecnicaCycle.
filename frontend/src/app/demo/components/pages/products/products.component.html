@@ -1,0 +1,427 @@
+<div class="grid">
+    <p-toast></p-toast>
+
+    <div class="col-12">
+        <div class="card p-0">
+            <div class="col-12">
+                <p-breadcrumb
+                    [model]="breadcrumbItems"
+                    [home]="{ icon: 'pi pi-home' }"
+                    routerLink="/"
+                ></p-breadcrumb>
+            </div>
+
+            <p-dataView
+                #dv
+                [value]="products"
+                [paginator]="true"
+                [rows]="9"
+                filterBy="name"
+                [sortField]="sortField"
+                [sortOrder]="sortOrder"
+                layout="grid"
+            >
+                <ng-template pTemplate="header">
+                    <div
+                        class="flex flex-column md:flex-row md:justify-content-between gap-2"
+                    >
+                        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input
+                                type="search"
+                                pInputText
+                                placeholder="Search by Name"
+                                (input)="onFilter(dv, $event)"
+                            />
+                        </span>
+                        <div class="flex gap-2">
+                            <button
+                                pButton
+                                (click)="openNew()"
+                                pRipple
+                                icon="pi pi-plus"
+                                label="Agregar"
+                            ></button>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template let-products pTemplate="listItem">
+                    <div
+                        class="hidden md:flex-1 md:flex align-items-center justify-content-between text-center md:text-left p-4"
+                    >
+                        <div class="font-semibold w-[100px]">Product</div>
+                        <div class="font-semibold w-[100px]">Name</div>
+
+                        <div class="font-semibold w-[100px]">Price</div>
+                        <div class="font-semibold w-[100px]">Description</div>
+                        <div class="font-semibold w-[100px]">Actions</div>
+                    </div>
+
+                    <div class="col-12" *ngFor="let product of products">
+                        <div
+                            class="flex flex-column md:flex-row align-items-center p-3 w-full"
+                        >
+                            <img
+                                [src]="product.image"
+                                [alt]="product.name"
+                                [width]="80"
+                                [height]="80"
+                                style="object-fit: cover; border-radius: 10px"
+                                class="my-4 md:my-0 w-9 md:w-10rem shadow-2 mr-5"
+                            />
+                            <div
+                                class="md:flex-1 md:flex md:align-items-center justify-content-between text-center md:text-left p-4"
+                            >
+                                <div
+                                    style="
+                                        max-width: 200px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    "
+                                >
+                                    {{ product.name }}
+                                </div>
+
+                                <div
+                                    style="
+                                        max-width: 200px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    "
+                                >
+                                    ${{ product.price }}
+                                </div>
+                                <div
+                                    style="
+                                        max-width: 200px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    "
+                                >
+                                    {{ product.description }}
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex align-items-center justify-content-center gap-4 bg-indigo-50 py-2"
+                            >
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-eye"
+                                    class="p-button-text"
+                                    (click)="verProducto()"
+                                ></button>
+
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-pencil"
+                                    class="p-button-text"
+                                    (click)="openEdit(product)"
+                                ></button>
+
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-trash"
+                                    class="p-button-text"
+                                    (click)="confirmDeleteProduct(product)"
+                                ></button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template let-products pTemplate="gridItem">
+                    <div class="grid grid-nogutter">
+                        <div
+                            class="col-12 md:col-4"
+                            *ngFor="let product of products"
+                        >
+                            <div class="card m-3 border-1 surface-border">
+                                <div
+                                    class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2"
+                                ></div>
+                                <div
+                                    class="flex flex-column align-items-center text-center mb-3"
+                                >
+                                    <img
+                                        [src]="product.image"
+                                        [alt]="product.name"
+                                        [width]="100"
+                                        [height]="100"
+                                        style="
+                                            object-fit: cover;
+                                            border-radius: 10px;
+                                        "
+                                        class="w-9 shadow-2 my-3 mx-0"
+                                    />
+                                    <div
+                                        class="text-xl font-bold"
+                                        style="
+                                            max-width: 200px;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                        "
+                                    >
+                                        {{ product.name }}
+                                    </div>
+                                    <div
+                                        class="mb-3"
+                                        style="
+                                            max-width: 200px;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                        "
+                                    >
+                                        {{ product.description }}
+                                    </div>
+
+                                    <p-rating
+                                        [ngModel]="product.rating"
+                                        [readonly]="true"
+                                        [cancel]="false"
+                                    ></p-rating>
+                                </div>
+                                <div
+                                    class="flex align-items-center justify-content-center gap-4 bg-indigo-50 py-2"
+                                >
+                                    <button
+                                        pButton
+                                        pRipple
+                                        icon="pi pi-eye"
+                                        class="p-button-text"
+                                        (click)="verProducto()"
+                                    ></button>
+
+                                    <button
+                                        pButton
+                                        pRipple
+                                        icon="pi pi-pencil"
+                                        class="p-button-text"
+                                        (click)="openEdit(product)"
+                                    ></button>
+
+                                    <button
+                                        pButton
+                                        pRipple
+                                        icon="pi pi-trash"
+                                        class="p-button-text"
+                                        (click)="confirmDeleteProduct(product)"
+                                    ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </div>
+    </div>
+</div>
+
+<p-dialog
+    [(visible)]="productDialog"
+    [style]="{ width: '450px' }"
+    header="Product Details"
+    [modal]="true"
+    class="p-fluid"
+>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="field">
+            <label for="name">Name</label>
+            <input
+                formControlName="name"
+                type="text"
+                pInputText
+                id="name"
+                autofocus
+            />
+            <div
+                *ngIf="
+                    productForm.get('name').touched &&
+                    productForm.get('name').errors
+                "
+            >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('name').errors.required"
+                    >Name is required.</small
+                >
+            </div>
+        </div>
+
+        <!-- Description Field -->
+        <div class="field">
+            <label for="description">Description</label>
+            <textarea
+                formControlName="description"
+                pInputTextarea
+                id="description"
+                rows="3"
+            ></textarea>
+            <div
+                *ngIf="
+                    productForm.get('description').touched &&
+                    productForm.get('description').errors
+                "
+            >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('description').errors.required"
+                    >Description is required.</small
+                >
+            </div>
+        </div>
+
+        <!-- Category Field -->
+        <div class="field">
+            <label for="category">Category</label>
+            <p-dropdown
+                formControlName="category"
+                [options]="categoryOptions"
+                placeholder="Category"
+            ></p-dropdown>
+            <div
+                *ngIf="
+                    productForm.get('category').touched &&
+                    productForm.get('category').errors
+                "
+            >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('category').errors.required"
+                    >Category is required.</small
+                >
+            </div>
+        </div>
+
+        <!-- Status Field -->
+        <div class="field">
+            <p-dropdown
+                formControlName="status"
+                [options]="statuses"
+                placeholder="Select status"
+            ></p-dropdown>
+            <div
+                *ngIf="
+                    productForm.get('status').touched &&
+                    productForm.get('status').errors
+                "
+            >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('status').errors.required"
+                    >Status is required.</small
+                >
+            </div>
+        </div>
+
+        <!-- Price Field -->
+        <div class="field">
+            <label for="price">Price</label>
+            <p-inputNumber
+                formControlName="price"
+                mode="currency"
+                currency="USD"
+                locale="en-US"
+            ></p-inputNumber>
+            <div
+                *ngIf="
+                    productForm.get('price').touched &&
+                    productForm.get('price').errors
+                "
+            >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('price').errors.required"
+                    >Price is required.</small
+                >
+                <small
+                    class="text-red-500"
+                    *ngIf="productForm.get('price').errors.min"
+                    >Price must be greater than 0.</small
+                >
+            </div>
+        </div>
+
+        <!-- Image Field -->
+        <div class="field p-fluid">
+            <label for="image" class="block text-600 font-medium mb-2"
+                >Image</label
+            >
+            <input
+                type="file"
+                id="image"
+                name="demo[]"
+                accept="image/*"
+                (change)="onFileSelect($event)"
+            />
+        </div>
+
+        <!-- Footer with Buttons -->
+        <p-footer class="flex justify-content-between">
+            <div></div>
+
+            <div class="flex gap-2">
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-times"
+                    class="p-button-text bg-indigo-50"
+                    (click)="hideDialog()"
+                    label="No"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-check"
+                    class="p-button-text bg-indigo-50"
+                    label="Yes"
+                    type="submit"
+                ></button>
+            </div>
+        </p-footer>
+    </form>
+</p-dialog>
+
+<p-dialog
+    [(visible)]="deleteProductDialog"
+    header="Confirmar eliminación"
+    [modal]="true"
+    [style]="{ width: '450px' }"
+>
+    <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span *ngIf="productToDelete"
+            >¿Confirmas eliminar el producto <b>{{ productToDelete.name }}</b
+            >?</span
+        >
+    </div>
+    <ng-template pTemplate="footer">
+        <button
+            pButton
+            pRipple
+            icon="pi pi-times"
+            class="p-button-text"
+            label="No"
+            (click)="deleteProductDialog = false"
+        ></button>
+        <button
+            pButton
+            pRipple
+            icon="pi pi-check"
+            class="p-button-text"
+            label="Yes"
+            (click)="confirmDelete()"
+        ></button>
+    </ng-template>
+</p-dialog>

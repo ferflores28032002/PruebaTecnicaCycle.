@@ -1,0 +1,14 @@
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\bin\Debug\net8.0\PruebaTecnicaCycle.Domain.exe
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\bin\Debug\net8.0\PruebaTecnicaCycle.Domain.deps.json
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\bin\Debug\net8.0\PruebaTecnicaCycle.Domain.runtimeconfig.json
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\bin\Debug\net8.0\PruebaTecnicaCycle.Domain.dll
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\bin\Debug\net8.0\PruebaTecnicaCycle.Domain.pdb
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.AssemblyInfoInputs.cache
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.AssemblyInfo.cs
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.csproj.CoreCompileInputs.cache
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.dll
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\refint\PruebaTecnicaCycle.Domain.dll
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.pdb
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\PruebaTecnicaCycle.Domain.genruntimeconfig.cache
+C:\Users\GATEWAY\Desktop\test\backend\PruebaTecnicaCycle.Domain\PruebaTecnicaCycle.Domain\obj\Debug\net8.0\ref\PruebaTecnicaCycle.Domain.dll

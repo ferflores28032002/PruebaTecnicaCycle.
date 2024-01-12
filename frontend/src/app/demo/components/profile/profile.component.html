@@ -1,0 +1,92 @@
+<div class="container mx-auto p-2 md:p-4">
+    <div class="bg-white shadow-md md:p-8 rounded-lg">
+        <div class="flex justify-content-center aling-items-center w-full">
+            <img
+                src="assets\demo\images\profiles\profile.jpeg"
+                width="110px"
+                height="110px"
+                alt=""
+                style="border-radius: 100%"
+            />
+        </div>
+
+        <h1 class="text-2xl font-semibold mt-4 text-center">
+            {{ datosPersonales.name }}
+        </h1>
+        <p class="text-gray-600">{{ datosPersonales.description }}</p>
+        <div class="mt-4">
+            <a
+                href="https://www.linkedin.com/in/tu-linkedin"
+                target="_blank"
+                class="text-blue-500 hover:underline"
+                >LinkedIn</a
+            >
+        </div>
+        <div class="mt-4">
+            <p class="text-gray-600">
+                <span class="text-md font-semibold"> Correo Electrónico:</span>
+                {{ datosPersonales.correo }}
+            </p>
+            <p class="text-gray-600">
+                <span class="text-md font-semibold"> Número de Teléfono: </span>
+                {{ datosPersonales.telefono }}
+            </p>
+        </div>
+        <div class="mt-4">
+            <h2 class="text-lg font-semibold">Habilidades:</h2>
+            <ul class="list-disc list-inside mt-2">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React.js</li>
+                <li>Angular.js</li>
+                <li>Vue.js</li>
+                <li>libreria de componentes (StoryBooks)</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>SQL Server Management Studio</li>
+                <li>ASP .net Core</li>
+                <li>Mysql</li>
+                <li>Postgress</li>
+                <li>MariaDB</li>
+                <li>MongoDB</li>
+                <li>Docker</li>
+            </ul>
+        </div>
+        <div class="mt-4">
+            <h2 class="text-lg font-semibold">State Management Libraries:</h2>
+            <ul class="list-disc list-inside mt-2">
+                <!-- React -->
+                <li>Redux</li>
+                <li>MobX</li>
+                <li>Context API (React's own state management tool)</li>
+
+                <!-- Vue -->
+                <li>Vuex</li>
+                <li>Pinia</li>
+                <li>Vue Observable</li>
+
+                <!-- Angular -->
+                <li>NgRx</li>
+                <li>Akita</li>
+                <li>NGXS</li>
+            </ul>
+        </div>
+
+        <div class="mt-4">
+            <h2 class="text-lg font-semibold">Design Frameworks:</h2>
+            <ul class="list-disc list-inside mt-2">
+                <li>Bootstrap</li>
+                <li>Material UI</li>
+                <li>Tailwind CSS</li>
+                <li>Ant Design</li>
+                <li>Chakra UI</li>
+                <li>Semantic UI</li>
+                <li>css</li>
+                <li>sass</li>
+                <li>Chakra UI</li>
+            </ul>
+        </div>
+    </div>
+</div>
